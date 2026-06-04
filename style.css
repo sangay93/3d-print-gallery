@@ -1,0 +1,133 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #f5f6fa;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  padding: 40px;
+  background: #111;
+  color: white;
+}
+
+/* CATEGORY BUTTONS */
+.categories {
+  text-align: center;
+  padding: 20px;
+}
+
+.categories button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background: #ddd;
+  transition: 0.3s;
+}
+
+.categories button:hover {
+  background: #111;
+  color: white;
+}
+
+/* GALLERY GRID */
+#gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* CARD */
+.card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card h3 {
+  padding: 10px;
+}
+
+/* LIGHTBOX */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-content {
+  background: white;
+  padding: 20px;
+  width: 400px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.lightbox-content img {
+  width: 100%;
+}
+
+#close {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ORDER */
+.order-box {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+}
+
+.order-content {
+  background: white;
+  width: 350px;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+input, textarea {
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+textarea {
+  height: 80px;
+  resize: none;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #111;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}

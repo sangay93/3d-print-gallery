@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3D Print Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <h1>3D Print Gallery</h1>
+  <p>Premium 3D Printed Models</p>
+</header>
+
+<!-- CATEGORY FILTER -->
+<div class="categories">
+  <button onclick="filter('all')">All</button>
+  <button onclick="filter('buddhas')">Buddhas</button>
+  <button onclick="filter('flowers')">Flowers</button>
+  <button onclick="filter('stupas')">Stupas</button>
+  <button onclick="filter('toys')">Toys</button>
+</div>
+
+<!-- GALLERY -->
+<div id="gallery"></div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox">
+  <div class="lightbox-content">
+
+    <span id="close">&times;</span>
+
+    <img id="lightbox-img">
+    <h2 id="lightbox-title"></h2>
+
+    <button id="want-btn">I Want This</button>
+  </div>
+</div>
+
+<!-- ORDER -->
+<div id="order-box" class="order-box">
+  <div class="order-content">
+
+    <h2>Order This Model</h2>
+
+    <p id="selected-model"></p>
+
+    <input type="text" id="name" placeholder="Name">
+    <input type="tel" id="phone" placeholder="Phone">
+    <textarea id="message" placeholder="Message / Notes"></textarea>
+
+    <button onclick="sendOrder()">Send</button>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
