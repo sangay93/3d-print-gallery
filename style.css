@@ -1,26 +1,54 @@
 /* =========================
-   GLOBAL
+   GLOBAL BACKGROUND (NO WHITE)
 ========================= */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f4f6f8;
+  color: white;
+  overflow-x: hidden;
+  background: #0b0b10;
 }
 
-/* HEADER */
+/* glowing background layer 1 */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, #ff4d6d33, transparent 40%),
+    radial-gradient(circle at 80% 30%, #4da3ff33, transparent 40%),
+    radial-gradient(circle at 50% 80%, #7cff4d33, transparent 40%);
+  z-index: -2;
+}
+
+/* moving glow layer */
+body::after {
+  content: "";
+  position: fixed;
+  inset: -50px;
+  background: linear-gradient(120deg, #ff4d6d20, #4da3ff20, #7cff4d20);
+  filter: blur(80px);
+  animation: moveBG 10s infinite alternate ease-in-out;
+  z-index: -1;
+}
+
+@keyframes moveBG {
+  0% { transform: translateX(-50px) translateY(-30px) scale(1); }
+  100% { transform: translateX(50px) translateY(30px) scale(1.2); }
+}
+
+/* =========================
+   HEADER
+========================= */
 header {
   text-align: center;
   padding: 25px;
-  background: #111;
-  color: white;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
 }
 
 header h1 {
   margin: 0;
-}
-
-header p {
-  opacity: 0.7;
 }
 
 /* =========================
@@ -31,23 +59,15 @@ header p {
   min-height: 100vh;
 }
 
-/* LEFT */
 .left {
   flex: 3;
 }
 
-/* RIGHT (PREMIUM BACKGROUND) */
 .right {
   flex: 1;
-  background: #0d0d0d;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
 }
 
 /* =========================
@@ -61,12 +81,12 @@ header p {
 }
 
 .card {
-  background: white;
+  background: rgba(255,255,255,0.1);
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-  transition: 0.25s;
+  transition: 0.3s;
+  backdrop-filter: blur(10px);
 }
 
 .card:hover {
@@ -80,8 +100,8 @@ header p {
 }
 
 .card h3 {
-  margin: 0;
   padding: 10px;
+  margin: 0;
 }
 
 /* =========================
@@ -97,9 +117,9 @@ header p {
 }
 
 .lightbox-content {
-  background: white;
-  width: 340px;
+  background: #111;
   padding: 20px;
+  width: 340px;
   border-radius: 12px;
   text-align: center;
   position: relative;
@@ -114,11 +134,13 @@ header p {
   position: absolute;
   top: 10px;
   right: 12px;
-  font-size: 22px;
   cursor: pointer;
+  font-size: 22px;
 }
 
-/* BUTTONS */
+/* =========================
+   BUTTONS
+========================= */
 button {
   width: 100%;
   margin-top: 10px;
@@ -145,64 +167,9 @@ button {
 }
 
 /* =========================
-   PREMIUM AMBIENT BACKGROUND
+   RIGHT SIDE TEXT
 ========================= */
-.ambient-bg {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-/* glowing blobs */
-.blob {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  filter: blur(70px);
-  opacity: 0.6;
-  animation: float 7s infinite ease-in-out;
-}
-
-.b1 {
-  background: #ff4d6d;
-  top: 20%;
-  left: 10%;
-}
-
-.b2 {
-  background: #4da3ff;
-  top: 50%;
-  right: 10%;
-  animation-delay: 2s;
-}
-
-.b3 {
-  background: #7CFF4D;
-  bottom: 10%;
-  left: 30%;
-  animation-delay: 4s;
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 0.4;
-  }
-  50% {
-    transform: translateY(-40px) scale(1.2);
-    opacity: 0.7;
-  }
-  100% {
-    transform: translateY(0) scale(1);
-    opacity: 0.4;
-  }
-}
-
-/* TEXT */
 .text {
-  position: relative;
-  z-index: 2;
   text-align: center;
 }
 
@@ -211,6 +178,5 @@ button {
 }
 
 .text p {
-  font-size: 13px;
   opacity: 0.7;
 }

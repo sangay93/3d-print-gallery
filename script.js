@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 });
 
-// LOAD JSON
+// LOAD DATA
 function loadData() {
   fetch("data.json")
     .then(res => res.json())
@@ -39,7 +39,7 @@ function renderGallery() {
   });
 }
 
-// OPEN POPUP
+// LIGHTBOX
 function openLightbox(product) {
   selectedProduct = product;
 
@@ -51,7 +51,7 @@ function openLightbox(product) {
   document.getElementById("lightbox").style.display = "flex";
 }
 
-// CONNECT OPTIONS
+// CONNECT BUTTONS
 function setupContact(product) {
 
   const phone = "614XXXXXXXX"; // change
@@ -63,8 +63,6 @@ function setupContact(product) {
     `https://wa.me/${phone}?text=` + encodeURIComponent(msg);
 
   document.getElementById("email-btn").href =
-    `mailto:${email}?subject=` +
-    encodeURIComponent("3D Model Enquiry") +
-    `&body=` +
+    `mailto:${email}?subject=3D Model Enquiry&body=` +
     encodeURIComponent(msg);
 }
