@@ -1,6 +1,6 @@
 [
   {
-    "name": "Buddha Model",
+    "name": "Stupa Model",
     "image": "images/img1.jpg"
   },
   {
@@ -10,5 +10,9 @@
   {
     "name": "Decor Vase",
     "image": "images/img3.jpg"
+  },
+  {
+    "name": "toothless dragon",
+    "image": "images/img4.jpg"
   }
 ]
