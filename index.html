@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>3D Print Gallery</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -10,23 +12,40 @@
 
 <header>
   <h1>3D Print Gallery</h1>
-  <p>Premium 3D Printed Models</p>
+  <p>Explore models and connect with the artist</p>
 </header>
 
-<!-- CATEGORY FILTER -->
-<div class="categories">
-  <button onclick="filter('all')">All</button>
-  <button onclick="filter('buddhas')">Buddhas</button>
-  <button onclick="filter('flowers')">Flowers</button>
-  <button onclick="filter('stupas')">Stupas</button>
-  <button onclick="filter('toys')">Toys</button>
-</div>
+<!-- MAIN LAYOUT -->
+<div class="layout">
 
-<!-- GALLERY -->
-<div id="gallery"></div>
+  <!-- LEFT: GALLERY -->
+  <div class="left">
+    <div id="gallery"></div>
+  </div>
+
+  <!-- RIGHT: PREMIUM BACKGROUND -->
+  <div class="right">
+
+    <div class="ambient-bg">
+
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <div class="blob b3"></div>
+
+      <div class="text">
+        <h2>3D Prints</h2>
+        <p>Creative models crafted with precision</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 
 <!-- LIGHTBOX -->
 <div id="lightbox" class="lightbox">
+
   <div class="lightbox-content">
 
     <span id="close">&times;</span>
@@ -34,25 +53,18 @@
     <img id="lightbox-img">
     <h2 id="lightbox-title"></h2>
 
-    <button id="want-btn">I Want This</button>
-  </div>
-</div>
+    <button id="want-btn">Connect with Artist</button>
 
-<!-- ORDER -->
-<div id="order-box" class="order-box">
-  <div class="order-content">
+    <a id="whatsapp-btn" target="_blank">
+      <button class="wa">WhatsApp</button>
+    </a>
 
-    <h2>Order This Model</h2>
-
-    <p id="selected-model"></p>
-
-    <input type="text" id="name" placeholder="Name">
-    <input type="tel" id="phone" placeholder="Phone">
-    <textarea id="message" placeholder="Message / Notes"></textarea>
-
-    <button onclick="sendOrder()">Send</button>
+    <a id="email-btn">
+      <button class="email">Email</button>
+    </a>
 
   </div>
+
 </div>
 
 <script src="script.js"></script>

@@ -1,71 +1,92 @@
+/* =========================
+   GLOBAL
+========================= */
 body {
   margin: 0;
-  font-family: Arial;
-  background: #f5f6fa;
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
 }
 
 /* HEADER */
 header {
   text-align: center;
-  padding: 40px;
+  padding: 25px;
   background: #111;
   color: white;
 }
 
-/* CATEGORY BUTTONS */
-.categories {
-  text-align: center;
-  padding: 20px;
+header h1 {
+  margin: 0;
 }
 
-.categories button {
-  margin: 5px;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  background: #ddd;
-  transition: 0.3s;
+header p {
+  opacity: 0.7;
 }
 
-.categories button:hover {
-  background: #111;
+/* =========================
+   LAYOUT
+========================= */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* LEFT */
+.left {
+  flex: 3;
+}
+
+/* RIGHT (PREMIUM BACKGROUND) */
+.right {
+  flex: 1;
+  background: #0d0d0d;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
 }
 
-/* GALLERY GRID */
+/* =========================
+   GALLERY
+========================= */
 #gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
   padding: 20px;
 }
 
-/* CARD */
 .card {
   background: white;
-  border-radius: 15px;
+  border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  transition: 0.3s;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transition: 0.25s;
 }
 
 .card:hover {
-  transform: scale(1.03);
+  transform: translateY(-5px);
 }
 
 .card img {
   width: 100%;
-  height: 200px;
+  height: 160px;
   object-fit: cover;
 }
 
 .card h3 {
+  margin: 0;
   padding: 10px;
 }
 
-/* LIGHTBOX */
+/* =========================
+   LIGHTBOX
+========================= */
 .lightbox {
   display: none;
   position: fixed;
@@ -77,57 +98,119 @@ header {
 
 .lightbox-content {
   background: white;
+  width: 340px;
   padding: 20px;
-  width: 400px;
-  border-radius: 15px;
+  border-radius: 12px;
   text-align: center;
+  position: relative;
 }
 
 .lightbox-content img {
   width: 100%;
+  border-radius: 10px;
 }
 
 #close {
-  float: right;
-  font-size: 24px;
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 22px;
   cursor: pointer;
 }
 
-/* ORDER */
-.order-box {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-}
-
-.order-content {
-  background: white;
-  width: 350px;
-  margin: 5% auto;
-  padding: 20px;
-  border-radius: 15px;
-}
-
-input, textarea {
-  width: 100%;
-  margin: 8px 0;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-}
-
-textarea {
-  height: 80px;
-  resize: none;
-}
-
+/* BUTTONS */
 button {
   width: 100%;
-  padding: 12px;
-  background: #111;
-  color: white;
+  margin-top: 10px;
+  padding: 10px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  font-weight: bold;
+}
+
+#want-btn {
+  background: #333;
+  color: white;
+}
+
+.wa {
+  background: #25D366;
+  color: white;
+}
+
+.email {
+  background: #007bff;
+  color: white;
+}
+
+/* =========================
+   PREMIUM AMBIENT BACKGROUND
+========================= */
+.ambient-bg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* glowing blobs */
+.blob {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.6;
+  animation: float 7s infinite ease-in-out;
+}
+
+.b1 {
+  background: #ff4d6d;
+  top: 20%;
+  left: 10%;
+}
+
+.b2 {
+  background: #4da3ff;
+  top: 50%;
+  right: 10%;
+  animation-delay: 2s;
+}
+
+.b3 {
+  background: #7CFF4D;
+  bottom: 10%;
+  left: 30%;
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-40px) scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.4;
+  }
+}
+
+/* TEXT */
+.text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.text h2 {
+  font-size: 28px;
+}
+
+.text p {
+  font-size: 13px;
+  opacity: 0.7;
 }

@@ -1,93 +1,70 @@
-// PRODUCTS (from your folders)
-const products = [
-  { name: "Golden Buddha", image: "images/buddhas/buddha1.jpg", category: "buddhas" },
-  { name: "Meditation Buddha", image: "images/buddhas/buddha2.jpg", category: "buddhas" },
-
-  { name: "Rose Flower", image: "images/flowers/flower1.jpg", category: "flowers" },
-
-  { name: "Mini Stupa", image: "images/stupas/stupa1.jpg", category: "stupas" },
-
-  { name: "Toy Robot", image: "images/toys/toy1.jpg", category: "toys" }
-];
-
+let products = [];
 let selectedProduct = null;
 
-// LOAD GALLERY
-function loadGallery(items) {
+document.addEventListener("DOMContentLoaded", () => {
+  loadData();
+
+  document.getElementById("close").onclick = () => {
+    document.getElementById("lightbox").style.display = "none";
+  };
+});
+
+// LOAD JSON
+function loadData() {
+  fetch("data.json")
+    .then(res => res.json())
+    .then(data => {
+      products = data;
+      renderGallery();
+    });
+}
+
+// RENDER
+function renderGallery() {
   const gallery = document.getElementById("gallery");
   gallery.innerHTML = "";
 
-  items.forEach(p => {
-    const div = document.createElement("div");
-    div.className = "card";
+  products.forEach(p => {
+    const card = document.createElement("div");
+    card.className = "card";
 
-    div.innerHTML = `
+    card.innerHTML = `
       <img src="${p.image}">
       <h3>${p.name}</h3>
     `;
 
-    div.onclick = () => openLightbox(p);
+    card.onclick = () => openLightbox(p);
 
-    gallery.appendChild(div);
+    gallery.appendChild(card);
   });
 }
 
-// FILTER CATEGORY
-function filter(category) {
-  if (category === "all") {
-    loadGallery(products);
-  } else {
-    const filtered = products.filter(p => p.category === category);
-    loadGallery(filtered);
-  }
-}
-
-// INIT
-loadGallery(products);
-
-// LIGHTBOX
+// OPEN POPUP
 function openLightbox(product) {
   selectedProduct = product;
 
   document.getElementById("lightbox-img").src = product.image;
   document.getElementById("lightbox-title").innerText = product.name;
 
+  setupContact(product);
+
   document.getElementById("lightbox").style.display = "flex";
 }
 
-// CLOSE
-document.getElementById("close").onclick = () => {
-  document.getElementById("lightbox").style.display = "none";
-};
+// CONNECT OPTIONS
+function setupContact(product) {
 
-// ORDER OPEN
-document.getElementById("want-btn").onclick = () => {
-  document.getElementById("lightbox").style.display = "none";
+  const phone = "614XXXXXXXX"; // change
+  const email = "your@email.com"; // change
 
-  document.getElementById("selected-model").innerText =
-    "Model: " + selectedProduct.name;
+  const msg = `Hi, interested in: ${product.name}`;
 
-  document.getElementById("order-box").style.display = "block";
-};
+  document.getElementById("whatsapp-btn").href =
+    `https://wa.me/${phone}?text=` + encodeURIComponent(msg);
 
-// SEND ORDER (simple demo)
-function sendOrder() {
-  const name = document.getElementById("name").value;
-  const phone = document.getElementById("phone").value;
-  const message = document.getElementById("message").value;
-
-  if (!name || !phone || !message) {
-    alert("Please fill all fields");
-    return;
-  }
-
-  alert(
-    "Order Sent!\n\n" +
-    "Model: " + selectedProduct.name +
-    "\nName: " + name +
-    "\nPhone: " + phone +
-    "\nMessage: " + message
-  );
-
-  document.getElementById("order-box").style.display = "none";
+  document.getElementById("email-btn").href =
+    `mailto:${email}?subject=` +
+    encodeURIComponent("3D Model Enquiry") +
+    `&body=` +
+    encodeURIComponent(msg);
 }
