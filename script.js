@@ -55,7 +55,7 @@ function openLightbox(product) {
 function setupContact(product) {
 
   const phone = "614XXXXXXXX"; // change
-  const email = "your@email.com"; // change
+  const email = "sangay8300@email.com"; // change
 
   const msg = `Hi, interested in: ${product.name}`;
 
