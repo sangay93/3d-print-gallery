@@ -14,5 +14,13 @@
   {
     "name": "toothless dragon",
     "image": "images/img4.jpg"
+  },
+  {
+    "name": "buddha dragon",
+    "image": "images/img5.jpg"
+  },
+  {
+    "name": "Chinese dragon",
+    "image": "images/img6.jpg"
   }
 ]
