@@ -59,10 +59,13 @@ function setupContact(product) {
 
   const msg = `Hi, interested in: ${product.name}`;
 
+  // WhatsApp (UNCHANGED STYLE)
   document.getElementById("whatsapp-btn").href =
     `https://wa.me/${phone}?text=` + encodeURIComponent(msg);
 
-  document.getElementById("email-btn").href =
-    `mailto:${email}?subject=3D Model Enquiry&body=` +
-    encodeURIComponent(msg);
+  // EMAIL FIX (IMPORTANT CHANGE ONLY HERE)
+  const mailto =
+    `mailto:${email}?subject=${encodeURIComponent("3D Model Enquiry")}&body=${encodeURIComponent(msg)}`;
+
+  document.getElementById("email-btn").setAttribute("href", mailto);
 }
