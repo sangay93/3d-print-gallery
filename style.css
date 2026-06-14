@@ -180,22 +180,16 @@ button {
 .text p {
   opacity: 0.7;
 }
-#order-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 15px;
+.form-container {
+  margin: 30px auto;
+  width: 95%;
+  max-width: 900px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
-
-#order-form input,
-#order-form textarea {
-  padding: 10px;
-  border-radius: 8px;
+iframe {
+  width: 100%;
+  min-height: 900px;
   border: none;
-  outline: none;
-}
-
-#order-form button {
-  background: #ff4d6d;
-  color: white;
 }
