@@ -180,3 +180,22 @@ button {
 .text p {
   opacity: 0.7;
 }
+#order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+#order-form input,
+#order-form textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+#order-form button {
+  background: #ff4d6d;
+  color: white;
+}
